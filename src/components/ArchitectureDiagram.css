@@ -1,0 +1,208 @@
+.arch-diagram {
+  margin-top: 1.5rem;
+  background: rgba(8, 13, 26, 0.7);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+[data-theme="light"] .arch-diagram {
+  background: #f1f5f9;
+}
+
+.arch-diagram__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.arch-diagram__badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.arch-diagram__hint {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.arch-diagram__flow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.75rem 0.25rem 1.25rem;
+  scrollbar-width: thin;
+}
+
+.arch-diagram__step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.arch-node {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+.arch-node:hover {
+  border-color: var(--accent-cyan);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.arch-node--selected {
+  border-color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+}
+
+.arch-node__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: rgba(56, 189, 248, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.arch-node--k8s .arch-node__icon {
+  color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.arch-node--ai .arch-node__icon {
+  color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.arch-node--db .arch-node__icon {
+  color: var(--accent-amber);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.arch-node__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-node__tier {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.arch-node__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.arch-diagram__connector {
+  display: flex;
+  align-items: center;
+  color: var(--accent-cyan);
+  opacity: 0.7;
+}
+
+.arch-diagram__line {
+  width: 14px;
+  height: 2px;
+  background: var(--accent-cyan);
+}
+
+.arch-diagram__arrow {
+  margin-left: -3px;
+}
+
+.arch-inspector {
+  margin-top: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.arch-inspector--placeholder {
+  font-size: 0.84rem;
+  color: var(--text-dim);
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+}
+
+.arch-inspector__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.arch-inspector__title {
+  font-size: 1.05rem;
+  margin-top: 0.25rem;
+}
+
+.arch-inspector__close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.arch-inspector__desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.arch-inspector__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.arch-inspector__spec-item {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.08);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
